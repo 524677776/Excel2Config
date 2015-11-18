@@ -120,7 +120,7 @@ class Gen {
 
     function render_php($data, $sheet_name, $php_dir)
     {
-        $file = $php_dir .'/'.$sheet_name. '.cfg.php';
+        $file = $php_dir .'/'.$sheet_name. '.config.php';
         $str = '<?php return ';
         $str .= var_export($data, true);
         $str .= ';';
@@ -129,7 +129,7 @@ class Gen {
 
     function render_json($rows, $sheet_name, $json_dir)
     {
-        $file = $json_dir .'/' .$sheet_name.'.cfg.json';
-        file_put_contents($file, urldecode(json_encode($rows)));
+        $file = $json_dir .'/' .$sheet_name.'.config.json';
+        file_put_contents($file, urldecode(json_encode($rows, JSON_FORCE_OBJECT | JSON_NUMERIC_CHECK)));
     }
 }
